@@ -24,8 +24,18 @@ message NetworkResponse {
 	uint32 active_network = 1;
 }
 
+message CreateWalletRequest {
+    string pass = 1;
+}
+message CreateWalletResponse {
+    string uuid = 1;
+}
+
 service WalletDaemonService {
 	// Queries
 	rpc Ping (PingRequest) returns (PingResponse);
 	rpc Network (NetworkRequest) returns (NetworkResponse);
+
+    // Wallet
+    rpc CreateWallet(CreateWalletRequest) returns (CreateWalletResponse);
 }

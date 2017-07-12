@@ -1,27 +1,66 @@
-hash: ebc94b484adde168b6febd5c22d0cb106694814237de46ba41a9e2af7f541107
-updated: 2017-07-12T15:13:59.465439533+05:30
+hash: 5722bf005bf97b1fdb14d51593da5269eb7280eec09c53cd71a495f059d2302e
+updated: 2017-07-12T17:18:39.970810129+05:30
 imports:
 - name: github.com/btcsuite/btcd
   version: 47885ab8702485be6b6f87a03d4f3be0bc5c982c
   subpackages:
   - chaincfg
-  - btcec
   - chaincfg/chainhash
   - wire
+  - btcec
+  - blockchain
+  - btcjson
+  - txscript
+  - database
 - name: github.com/btcsuite/btclog
   version: 84c8d2346e9fc8c7b947e243b9c24e6df9fd206a
+- name: github.com/btcsuite/btcrpcclient
+  version: c72658166ae09457e6beb14e9112241e352ebd35
 - name: github.com/btcsuite/btcutil
   version: 5ffa719c3882fd2ec1e8b9f4978066701c31a343
   subpackages:
   - base58
+  - hdkeychain
 - name: github.com/btcsuite/btcwallet
   version: 4222c0464ad2e5c28c073608a144ea925c9f7e2d
   subpackages:
   - netparams
+  - wallet
+  - chain
+  - internal/prompt
+  - waddrmgr
+  - wallet/txauthor
+  - wallet/txrules
+  - walletdb
+  - wtxmgr
+  - internal/legacy/keystore
+  - internal/zero
+  - snacl
+  - internal/helpers
+  - wallet/internal/txsizes
+  - internal/legacy/rename
+- name: github.com/btcsuite/go-socks
+  version: 4720035b7bfd2a9bb130b1c184f8bbe41b6f0d0f
+  subpackages:
+  - socks
+- name: github.com/btcsuite/golangcrypto
+  version: 53f62d9b43e87a6c56975cf862af7edf33a8d0df
+  subpackages:
+  - ssh/terminal
+  - ripemd160
+  - nacl/secretbox
+  - scrypt
+  - poly1305
+  - salsa20/salsa
+  - pbkdf2
+- name: github.com/btcsuite/websocket
+  version: 31079b6807923eb23992c421b114992b95131b55
 - name: github.com/golang/protobuf
   version: 0a4f71a498b7c4812f64969510bcb4eca251e33a
   subpackages:
   - proto
+- name: github.com/google/uuid
+  version: 1c6adf5cd133db09196c44ffae1f77ebf4da64aa
 - name: github.com/jessevdk/go-flags
   version: 5695738f733662da3e9afc2283bba6f3c879002d
 - name: github.com/jrick/logrotate
@@ -58,8 +97,6 @@ imports:
   - internal
   - metadata
   - naming
-  - stats
-  - tap
   - transport
   - peer
 testImports: []

@@ -75,3 +75,14 @@ func (s *walletDaemonServer) Network(ctx context.Context, req *pb.NetworkRequest
 
 	return &pb.NetworkResponse{ActiveNetwork: uint32(s.walletd.ChainParams().Net)}, nil
 }
+
+func (s *walletDaemonServer) CreateWallet(ctx context.Context,
+	req *pb.CreateWalletRequest) (*pb.CreateWalletResponse, error) {
+
+	uuid, err := s.walletd.CreateWallet(nil, []byte(req.Pass), nil)
+	if err != nil {
+		// TODO: error codes
+		return nil, grpc.Errorf(3200, "%s", err.Error())
+	}
+	return &pb.CreateWalletResponse{uuid}, nil
+}

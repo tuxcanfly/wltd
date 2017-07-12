@@ -60,7 +60,7 @@ func walletdMain() error {
 			log.Errorf("%v", http.ListenAndServe(listenAddr, nil))
 		}()
 	}
-	walletDaemon := walletd.NewWalletDaemon(activeNet)
+	walletDaemon := walletd.NewWalletDaemon(cfg.AppDataDir, activeNet)
 	rpcs, err := startRPCServer(walletDaemon)
 	if err != nil {
 		log.Errorf("Unable to create RPC server: %v", err)

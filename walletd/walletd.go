@@ -5,12 +5,17 @@
 package walletd
 
 import (
+	"path/filepath"
 	"sync"
 
 	"github.com/btcsuite/btcd/chaincfg"
+	"github.com/btcsuite/btcwallet/wallet"
+	_ "github.com/btcsuite/btcwallet/walletdb/bdb"
+	"github.com/google/uuid"
 )
 
 type WalletDaemon struct {
+	dbDir       string
 	chainParams *chaincfg.Params
 	wg          sync.WaitGroup
 
@@ -19,8 +24,9 @@ type WalletDaemon struct {
 	quitMu  sync.Mutex
 }
 
-func NewWalletDaemon(activeNet *chaincfg.Params) *WalletDaemon {
+func NewWalletDaemon(dbDir string, activeNet *chaincfg.Params) *WalletDaemon {
 	return &WalletDaemon{
+		dbDir:       dbDir,
 		chainParams: activeNet,
 	}
 }
@@ -41,6 +47,14 @@ func (w *WalletDaemon) Start() {
 		w.started = true
 	}
 	w.quitMu.Unlock()
+}
+
+func (w *WalletDaemon) CreateWallet(pubPassphrase, privPassphrase, seed []byte) (string, error) {
+	id := uuid.New().String()
+	wltDir := filepath.Join(w.dbDir, "wallets", id)
+	loader := wallet.NewLoader(w.chainParams, wltDir)
+	_, err := loader.CreateNewWallet(pubPassphrase, privPassphrase, seed)
+	return id, err
 }
 
 // quitChan atomically reads the quit channel.
