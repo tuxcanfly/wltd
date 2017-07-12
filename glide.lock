@@ -1,0 +1,65 @@
+hash: ebc94b484adde168b6febd5c22d0cb106694814237de46ba41a9e2af7f541107
+updated: 2017-07-12T15:13:59.465439533+05:30
+imports:
+- name: github.com/btcsuite/btcd
+  version: 47885ab8702485be6b6f87a03d4f3be0bc5c982c
+  subpackages:
+  - chaincfg
+  - btcec
+  - chaincfg/chainhash
+  - wire
+- name: github.com/btcsuite/btclog
+  version: 84c8d2346e9fc8c7b947e243b9c24e6df9fd206a
+- name: github.com/btcsuite/btcutil
+  version: 5ffa719c3882fd2ec1e8b9f4978066701c31a343
+  subpackages:
+  - base58
+- name: github.com/btcsuite/btcwallet
+  version: 4222c0464ad2e5c28c073608a144ea925c9f7e2d
+  subpackages:
+  - netparams
+- name: github.com/golang/protobuf
+  version: 0a4f71a498b7c4812f64969510bcb4eca251e33a
+  subpackages:
+  - proto
+- name: github.com/jessevdk/go-flags
+  version: 5695738f733662da3e9afc2283bba6f3c879002d
+- name: github.com/jrick/logrotate
+  version: 4ed05ed86ef17d10ff99cce77481e0fcf6f2c7b0
+  subpackages:
+  - rotator
+- name: golang.org/x/crypto
+  version: dd85ac7e6a88fc6ca420478e934de5f1a42dd3c6
+  subpackages:
+  - ripemd160
+- name: golang.org/x/net
+  version: f01ecb60fe3835d80d9a0b7b2bf24b228c89260e
+  subpackages:
+  - context
+  - http2
+  - trace
+  - http2/hpack
+  - idna
+  - lex/httplex
+  - internal/timeseries
+- name: golang.org/x/text
+  version: cfdf022e86b4ecfb646e1efbd7db175dd623a8fa
+  subpackages:
+  - secure/bidirule
+  - unicode/norm
+  - transform
+  - unicode/bidi
+- name: google.golang.org/grpc
+  version: b7f1379d3cbbbeb2ca3405852012e237aa05459e
+  subpackages:
+  - credentials
+  - grpclog
+  - codes
+  - internal
+  - metadata
+  - naming
+  - stats
+  - tap
+  - transport
+  - peer
+testImports: []

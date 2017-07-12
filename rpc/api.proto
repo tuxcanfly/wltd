@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package walletdrpc;
+
+service VersionService {
+	rpc Version (VersionRequest) returns (VersionResponse);
+}
+
+message VersionRequest {}
+message VersionResponse {
+	string version_string = 1;
+	uint32 major = 2;
+	uint32 minor = 3;
+	uint32 patch = 4;
+	string prerelease = 5;
+	string build_metadata = 6;
+}
+
+message PingRequest {}
+message PingResponse {}
+
+message NetworkRequest {}
+message NetworkResponse {
+	uint32 active_network = 1;
+}
+
+service WalletDaemonService {
+	// Queries
+	rpc Ping (PingRequest) returns (PingResponse);
+	rpc Network (NetworkRequest) returns (NetworkResponse);
+}

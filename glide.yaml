@@ -1,0 +1,25 @@
+package: github.com/tuxcanfly/walletd
+import:
+- package: github.com/btcsuite/btcd
+  subpackages:
+  - chaincfg
+- package: github.com/btcsuite/btclog
+- package: github.com/btcsuite/btcutil
+- package: github.com/btcsuite/btcwallet
+  subpackages:
+  - netparams
+- package: github.com/golang/protobuf
+  subpackages:
+  - proto
+- package: github.com/jessevdk/go-flags
+- package: github.com/jrick/logrotate
+  subpackages:
+  - rotator
+- package: golang.org/x/net
+  subpackages:
+  - context
+- package: google.golang.org/grpc
+  version: 1.0.3
+  subpackages:
+  - credentials
+  - grpclog
