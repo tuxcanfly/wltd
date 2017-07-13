@@ -51,9 +51,9 @@ func (w *WalletDaemon) Start() {
 
 func (w *WalletDaemon) CreateWallet(pubPassphrase, privPassphrase, seed []byte) (string, error) {
 	id := uuid.New().String()
-	wltDir := filepath.Join(w.dbDir, "wallets", id)
-	loader := wallet.NewLoader(w.chainParams, wltDir)
-	_, err := loader.CreateNewWallet(pubPassphrase, privPassphrase, seed)
+	loader := wallet.NewLoader(w.chainParams)
+	wltDir := networkDir(filepath.Join(w.dbDir, "wallets", id), w.chainParams)
+	_, err := loader.CreateNewWallet(wltDir, pubPassphrase, privPassphrase, seed)
 	return id, err
 }
 

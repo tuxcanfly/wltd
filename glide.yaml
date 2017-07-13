@@ -1,4 +1,4 @@
-package: github.com/tuxcanfly/walletd
+package: github.com/tuxcanfly/wltd
 import:
 - package: github.com/btcsuite/btcd
   subpackages:
@@ -6,6 +6,9 @@ import:
 - package: github.com/btcsuite/btclog
 - package: github.com/btcsuite/btcutil
 - package: github.com/btcsuite/btcwallet
+  repo: git@github.com:tuxcanfly/btcwallet.git
+  vcs: git
+  ref: multi-tenant
   subpackages:
   - netparams
 - package: github.com/golang/protobuf

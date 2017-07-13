@@ -1,12 +1,14 @@
-hash: 5722bf005bf97b1fdb14d51593da5269eb7280eec09c53cd71a495f059d2302e
-updated: 2017-07-12T17:18:39.970810129+05:30
+hash: df2ac735cdf1d1a183e1b858702593ad8c09cb8913c315b32b04b894d732fd7d
+updated: 2017-07-13T16:55:23.330859751+05:30
 imports:
+- name: github.com/boltdb/bolt
+  version: 583e8937c61f1af6513608ccc75c97b6abdf4ff9
 - name: github.com/btcsuite/btcd
   version: 47885ab8702485be6b6f87a03d4f3be0bc5c982c
   subpackages:
   - chaincfg
-  - chaincfg/chainhash
   - wire
+  - chaincfg/chainhash
   - btcec
   - blockchain
   - btcjson
@@ -22,10 +24,14 @@ imports:
   - base58
   - hdkeychain
 - name: github.com/btcsuite/btcwallet
-  version: 4222c0464ad2e5c28c073608a144ea925c9f7e2d
+  version: fedc45d09404d2f2dca9701b777651e0f84eaf3c
+  repo: git@github.com:tuxcanfly/btcwallet.git
+  vcs: git
   subpackages:
   - netparams
+  - rpc/walletrpc
   - wallet
+  - walletdb/bdb
   - chain
   - internal/prompt
   - waddrmgr
@@ -39,6 +45,8 @@ imports:
   - internal/helpers
   - wallet/internal/txsizes
   - internal/legacy/rename
+- name: github.com/btcsuite/go-flags
+  version: 6c288d648c1cc1befcb90cb5511dcacf64ae8e61
 - name: github.com/btcsuite/go-socks
   version: 4720035b7bfd2a9bb130b1c184f8bbe41b6f0d0f
   subpackages:
@@ -81,6 +89,10 @@ imports:
   - idna
   - lex/httplex
   - internal/timeseries
+- name: golang.org/x/sys
+  version: abf9c25f54453410d0c6668e519582a9e1115027
+  subpackages:
+  - unix
 - name: golang.org/x/text
   version: cfdf022e86b4ecfb646e1efbd7db175dd623a8fa
   subpackages:

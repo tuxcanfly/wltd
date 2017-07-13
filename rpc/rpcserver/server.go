@@ -20,6 +20,7 @@ import (
 	"google.golang.org/grpc"
 
 	"github.com/btcsuite/btcd/chaincfg"
+	"github.com/btcsuite/btcwallet/wallet"
 	pb "github.com/tuxcanfly/wltd/rpc/walletdrpc"
 	"github.com/tuxcanfly/wltd/walletd"
 )
@@ -78,8 +79,7 @@ func (s *walletDaemonServer) Network(ctx context.Context, req *pb.NetworkRequest
 
 func (s *walletDaemonServer) CreateWallet(ctx context.Context,
 	req *pb.CreateWalletRequest) (*pb.CreateWalletResponse, error) {
-
-	uuid, err := s.walletd.CreateWallet(nil, []byte(req.Pass), nil)
+	uuid, err := s.walletd.CreateWallet([]byte(wallet.InsecurePubPassphrase), []byte(req.Pass), nil)
 	if err != nil {
 		// TODO: error codes
 		return nil, grpc.Errorf(3200, "%s", err.Error())
